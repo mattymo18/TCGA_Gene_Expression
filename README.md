@@ -3,7 +3,7 @@ TCGA Gene Expression Project
 ###### Authors:
 Henry Cervantes \
 Puyao Ge \
-Matt Johnson \
+Matt Johnson
 
 Introduction
 ------------
