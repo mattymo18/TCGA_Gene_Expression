@@ -1,9 +1,9 @@
 TCGA Gene Expression Project
 ----------------------------
-#### Authors:
-Henry Cervantes
-Puyao Ge
-Matt Johnson
+###### Authors:
+Henry Cervantes \
+Puyao Ge \
+Matt Johnson \
 
 Introduction
 ------------
