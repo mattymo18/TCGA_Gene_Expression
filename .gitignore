@@ -12,3 +12,6 @@ Project1_Final.Rmd
 Project1_Final.pdf
 Project1_Instructions.Rmd
 Project1_Instructions.pdf
+derived_data/*.csv
+derived_graphics/*.png
+derived_models/*.rds
