@@ -7,6 +7,35 @@ Matt Johnson
 
 ***
 
+### USAGE
+
+You'll need Docker and the ability to run Docker as your current user.
+
+You'll need to build the container:
+
+    > docker build . -t tcga_env
+
+This Docker container is based on rocker/verse. To run rstudio server:
+
+    > docker run -v `pwd`:/home/rstudio -p 8787:8787 -e PASSWORD=mypass -t tcga-env
+      
+Then connect to the machine on port 8787.
+
+#### Data
+Data will need to be in current directory named `TCGA_sample.txt` as a text file. 
+
+#### Make
+Use Makefile as recipe book for building artifacts found in derived directories. 
+
+##### Example:
+In local project directory, to build artifact `Example.csv`:
+
+    > make derived_data/Example.csv
+    
+Use artifacts before colon as make targets. Dependencies are listed after colon.
+
+***
+
 Abstract
 --------
 Tumor classification and detection are integral tasks for determining if an individual has certain cancers and are prominent areas of study in biology and biostatistics. The Cancer Genome Atlas (TCGA) has characterized thousands of cancerous cells in an attempt to better diagnose, treat, and prevent cancer. We attempt to cluster and classify 217 Basal and Normal tumors using machine learning algorithms. We performed Principal Component Analysis (PCA) on the unlabeled centered observations of 2000 genes for each tumor as dimensionality reduction finding 80% cumulative variance explained with only 58 principal components. A K-Means clustering algorithm and an agglomerative clustering algorithm are then fitted on the centered data to find structure in the unlabeled feature vectors of the tumors. Finally, a K-Nearest-Neighbor (KNN) classification algorithm is trained on unlabeled tumors using cross-validation. The K-Means and agglomerative clustering analyses resulted in two nearly homogeneous clusters of Normal and Basal tumors that would be useful in finding structure of future unlabeled tumors. Similarly, the KNN classification algorithm had an accuracy of 93% on out of sample test data. We conclude that Basal and Normal tumors are genetically different and distinguishable based on our small sample.
