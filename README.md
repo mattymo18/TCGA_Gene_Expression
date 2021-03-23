@@ -55,6 +55,17 @@ An anonymized dataset of gene expression values from 2000 genes measured for 217
 
 ***
 
+Useful Plots
+------------
+![](README_graphics/Mean.SD.Plot.png)
+Plot above is the columns means against column Standard Deviation. As you can see there is potentially one outlier. 
+
+![](README_graphics/K-Means.Cluster.Plot.png)
+Plot above is the result of the K-Means clustering algorithm with 2 centers. 
+
+![](README_graphics/Confusion.Table.rds)
+Table above is the resulting confusion matrix from the KNN classification algorithm on a cross-validated test set. 
+
 Conclusion
 ----------
 In conclusion, we found that we can reliably classify Normal and Basal tumors based on gene expression. The KNN classification algorithm had an accuracy of 93% on cross-validated data. Similarly, the K-Means clustering algorithm correctly grouped 97% of the unlabeled tumors with tumors that were the same subtype. Surprisingly, only the first two principal components were needed to visualize this result. This is most likely due to existing correlations between the expression of specific genes, making it possible to reduce the dimensionality of the data to such a large degree. 
