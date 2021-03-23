@@ -64,7 +64,7 @@ Plot above is the columns means against column Standard Deviation. As you can se
 Plot above is the result of the K-Means clustering algorithm with 2 centers. 
 
 ![](README_graphics/Confusion.Table.png)
-```
+
 Table above is the resulting confusion matrix from the KNN classification algorithm on a cross-validated test set. 
 
 Conclusion
