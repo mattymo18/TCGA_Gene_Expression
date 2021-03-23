@@ -2,6 +2,8 @@
 library(tidyverse)
 library(class)
 library(knitr)
+library(kableExtra)
+webshot::install_phantomjs()
 
 DF.Center <- read.csv("derived_data/TCGA.centered.csv") %>% 
   select(-X)
@@ -19,18 +21,19 @@ test_class<-as.factor(DF.Center[-index,1]) #Classifications of test set
 
 # Run classification algorithm.
 CL_train=knn(DF_train, DF_train, train_class, k=3)
-# Compute training set accuracy.
-length(which(CL_train==train_class))/length(CL_train)
 
 # Compute accuracy on test set.
 CL_test=knn(DF_train, DF_test, train_class, k=3)
-length(which(CL_test==test_class))/length(CL_test)
+
 
 # Find classes where the algorithm performed best / worst.
 confusion.mat <- as.matrix(table(Actual = test_class, Predicted = CL_test))
-Confusion <- kable(confusion.mat)
+Confusion <- kable(confusion.mat) %>% 
+  kable_styling() %>% 
+  save_kable(file = "derived_graphics/Confusion.Table.png", zoom = 1)
+Confusion <- kable(confusion.mat) %>% 
+  kable_styling() %>% 
+  save_kable(file = "README_graphics/Confusion.Table.png", zoom = 1)
 
-saveRDS(Confusion, "derived_graphics/Confusion.Table.rds")
-saveRDS(Confusion, "README_graphics/Confusion.Table.rds")
 
 saveRDS(CL_test, "derived_models/Test.Knn.Mod.rds")

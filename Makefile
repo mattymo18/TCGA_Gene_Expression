@@ -41,8 +41,8 @@ derived_graphics/Dendrogram.Cluster.Plot.png:\
 	Rscript cluster_plots.R
 	
 # Classification
-README_graphics/Confusion.Table.rds\
-derived_graphics/Confusion.Table.rds\
+README_graphics/Confusion.Table.png\
+derived_graphics/Confusion.Table.png\
 derived_models/Test.Knn.Mod.rds:\
  derived_data/TCGA.centered.csv\
  classification.R
